@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import coffee from '../public/static/coffee.gif'
+
+import Banner from '../components/banner'
 
 
 // A font being used for tite:  
@@ -18,14 +18,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Image className={styles.titleimage} src={coffee}  unoptimized={true} />      
-      
       <main className={styles.main}>      
-        <h1 className={inter.className}>Dink.io</h1>
+        <h1 className={inter.className}>Drink.io</h1>
       </main>
+      <Banner/>   
 
-      
+              
     </>
   )
 }

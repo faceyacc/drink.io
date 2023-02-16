@@ -3,12 +3,17 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
-  /* min-height: 100vh; */
+  padding: 0.1rem;
+  background:  #1A1A1A;;
 }
 
-.titleimage{
-  display:flex;
-  width: 100%;
-  padding-left: 4rem;
+.titleimage{  
+  display: flex;
+  flex-direction: column;
+
+  
+  height: 40rem;
+  
+
 }
+

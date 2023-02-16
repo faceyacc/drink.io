@@ -1,0 +1,17 @@
+.container {
+    background-color: #222222;
+    position: absolute;
+    min-height: 100%;
+    /* display: table-column; */
+    padding-top: 300px;
+    
+}
+
+
+.icon {
+    color: white;
+    display: flex;
+    padding: 1.5rem;  
+    size: 5rem;  
+}
+
