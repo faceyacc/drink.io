@@ -21,11 +21,12 @@
     color: black;
 }
 
+
+
 .container {
     position: absolute;
-    left: 50px;
-    bottom: 320px;
-    font-family: Helvetica;
+    left: 3%;
+    bottom: 35%;
 }
 
 /** 
