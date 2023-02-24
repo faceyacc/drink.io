@@ -1,14 +1,24 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-
 import Banner from '../components/banner'
 import Card from '../components/card'
+import coffeeStoresData from '../data/coffee-stores.json'
+
+export async function getServerSideProps(context) {
+  return {
+    props: { // will be passed to the page component as props
+      coffeeStores: coffeeStoresData,
+    }, 
+  }
+}
+
+
 
 // A font being used for tite:  
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home(props) {
 
   const handleOnBannerBtnClick = () => {
     console.log("hi banner button")
@@ -26,15 +36,25 @@ export default function Home() {
       
       
       <main className={styles.main}>     
-      <Banner buttonText="View store nearby" handleOnClick={handleOnBannerBtnClick}/>            
-      <div className={styles.cardLayout}>
-        <Card className={styles.card} name='Cafe Ladro' imgUrl='/static/ladro.jpg' href="/coffee-store/ladro"/>
-        <Card className={styles.card} name='Cafe Ladro' imgUrl='/static/ladro.jpg' href="/coffee-store/ladro"/>
-        <Card className={styles.card} name='Cafe Ladro' imgUrl='/static/ladro.jpg' href="/coffee-store/ladro"/>
-        <Card className={styles.card} name='Cafe Ladro' imgUrl='/static/ladro.jpg' href="/coffee-store/ladro"/>
-        <Card className={styles.card} name='Cafe Ladro' imgUrl='/static/ladro.jpg' href="/coffee-store/ladro"/>
-        <Card className={styles.card} name='Cafe Ladro' imgUrl='/static/ladro.jpg' href="/coffee-store/ladro"/>
-      </div>  
+      <Banner buttonText="View store nearby" handleOnClick={handleOnBannerBtnClick}/>   
+      
+      {props.coffeeStores.length > 0 && 
+      <>
+        <div className={styles.cardLayout}>
+        <h2 className={styles.heading2}>Seattle Coffee</h2>
+          {props.coffeeStores.map((coffeeStore) => {
+            return(
+            <Card 
+              className={styles.card} 
+              key={coffeeStore.id}
+              name={coffeeStore.name}
+              imgUrl={coffeeStore.imgUrl}
+              href={`/coffee-store/${coffeeStore.id}`}
+            />
+            )
+          })}
+        </div> 
+      </>}        
       </main>
     </>
   )
